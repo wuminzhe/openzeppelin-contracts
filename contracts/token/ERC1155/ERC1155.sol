@@ -16,7 +16,7 @@ import "../../utils/introspection/ERC165.sol";
  *
  * _Available since v3.1._
  */
-contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
+contract ERC1155 is Context, ERC165, IERC1155 {
     using Address for address;
 
     // Mapping from token ID to account balances
@@ -41,7 +41,6 @@ contract ERC1155 is Context, ERC165, IERC1155, IERC1155MetadataURI {
     function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
         return
             interfaceId == type(IERC1155).interfaceId ||
-            interfaceId == type(IERC1155MetadataURI).interfaceId ||
             super.supportsInterface(interfaceId);
     }
 
