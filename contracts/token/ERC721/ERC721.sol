@@ -15,7 +15,7 @@ import "../../utils/introspection/ERC165.sol";
  * the Metadata extension, but not including the Enumerable extension, which is available separately as
  * {ERC721Enumerable}.
  */
-contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
+contract ERC721 is Context, ERC165, IERC721 {
     using Address for address;
     using Strings for uint256;
 
@@ -51,7 +51,6 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata {
     function supportsInterface(bytes4 interfaceId) public view virtual override(ERC165, IERC165) returns (bool) {
         return
             interfaceId == type(IERC721).interfaceId ||
-            interfaceId == type(IERC721Metadata).interfaceId ||
             super.supportsInterface(interfaceId);
     }
 
